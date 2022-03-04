@@ -14,7 +14,7 @@ class YePhrasesRemoteDataSourceImpl implements YePhrasesRemoteDataSource {
   YePhrasesRemoteDataSourceImpl({required this.client});
   @override
   Future<YePhraseModel> getYePhrase() async {
-    client.options.headers["Content-Type"] = "application/json";
+    // client.options.headers["Content-Type"] = "application/json";
     final response = await client.get(Endpoints.phraseEndpoint);
     if (response.statusCode == 200) {
       return YePhraseModel.fromJson(response.data);
