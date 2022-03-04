@@ -7,6 +7,8 @@ class YePhraseModel {
 
   YePhraseModel({required this.quote});
 
+  YePhrase toEntity() => YePhrase(quote: quote);
+
   factory YePhraseModel.fromEntity(YePhrase entity) {
     return YePhraseModel(quote: entity.quote);
   }
