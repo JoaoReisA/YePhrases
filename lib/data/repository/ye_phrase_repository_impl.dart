@@ -9,6 +9,6 @@ class YePhraseRepositoryImpl implements YePhraseRepository {
 
   @override
   Future<YePhrase> fetchPhrase() async {
-    try {} catch (exception) {}
+    throw UnimplementedError();
   }
 }
