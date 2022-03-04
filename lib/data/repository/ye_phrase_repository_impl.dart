@@ -1,14 +1,13 @@
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:ye_phrases/domain/entity/ye_phrase.dart';
 import 'package:ye_phrases/domain/repository/ye_phrase_repository.dart';
 
+import '../../core/error/failures.dart';
+
 class YePhraseRepositoryImpl implements YePhraseRepository {
-  final Dio client;
-
-  YePhraseRepositoryImpl({required this.client});
-
   @override
-  Future<YePhrase> fetchPhrase() async {
+  Future<Either<Failure, YePhrase>> fetchPhrase() async {
     throw UnimplementedError();
   }
 }

@@ -1,8 +1,11 @@
+import 'package:dartz/dartz.dart';
 import 'package:ye_phrases/domain/entity/ye_phrase.dart';
 import 'package:ye_phrases/domain/repository/ye_phrase_repository.dart';
 
+import '../../core/error/failures.dart';
+
 abstract class FetchPhraseUsecase {
-  Future<YePhrase> call();
+  Future<Either<Failure, YePhrase>> call();
 }
 
 class FetchPhraseUsecaseImpl implements FetchPhraseUsecase {
@@ -11,8 +14,8 @@ class FetchPhraseUsecaseImpl implements FetchPhraseUsecase {
   FetchPhraseUsecaseImpl({required this.repository});
 
   @override
-  Future<YePhrase> call() async {
-    final phrase = repository.fetchPhrase();
-    return await phrase;
+  Future<Either<Failure, YePhrase>> call() async {
+    final phrase = await repository.fetchPhrase();
+    return phrase;
   }
 }

@@ -1,3 +1,3 @@
 class Endpoints {
-  final phraseEndpoint = "https://api.kanye.rest";
+  static const phraseEndpoint = "https://api.kanye.rest";
 }

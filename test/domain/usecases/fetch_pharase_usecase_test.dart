@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:ye_phrases/domain/entity/ye_phrase.dart';
@@ -15,13 +16,13 @@ void main() {
   });
   group("fetch phrase usecase test", () {
     test("Should return a ye quote", () async {
+      final yeQuote = YePhrase(quote: "quote");
       when(() => repository.fetchPhrase())
-          .thenAnswer((invocation) async => YePhrase(quote: "quote"));
+          .thenAnswer((invocation) async => Right(yeQuote));
 
       final result = await usecase();
 
-      expect(result, isA<YePhrase>());
-      expect(result.quote, equals("quote"));
+      expect(result, Right(yeQuote));
     });
   });
 }
