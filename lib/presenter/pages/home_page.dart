@@ -32,17 +32,33 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         centerTitle: true,
         title: const Text("Ye Quotes"),
+        actions: [
+          IconButton(
+              iconSize: 24,
+              onPressed: () => controller.callUsecase(),
+              icon: const Icon(Icons.refresh_outlined))
+        ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: Stack(
         children: [
-          ValueListenableBuilder(
-              valueListenable: controller.valueNotifier,
-              builder: (context, value, child) {
-                return QuoteWidget(quote: value.toString());
-              }),
-          Image.asset("assets/images/ye.png")
+          Positioned(
+            top: 200,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: ValueListenableBuilder(
+                  valueListenable: controller.valueNotifier,
+                  builder: (context, value, child) {
+                    return QuoteWidget(quote: value.toString());
+                  }),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Image.asset("assets/images/ye_photo2.png"),
+          )
         ],
       ),
     );
