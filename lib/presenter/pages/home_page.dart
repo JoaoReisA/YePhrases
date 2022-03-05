@@ -49,7 +49,12 @@ class _HomePageState extends State<HomePage> {
               child: ValueListenableBuilder(
                   valueListenable: controller.valueNotifier,
                   builder: (context, value, child) {
-                    return QuoteWidget(quote: value.toString());
+                    if (controller.failure == null) {
+                      return QuoteWidget(quote: value.toString());
+                    } else {
+                      return const QuoteWidget(
+                          quote: "Sorry, the server is off");
+                    }
                   }),
             ),
           ),
