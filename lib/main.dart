@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ye_phrases/core/di/locator.dart';
+import 'package:ye_phrases/presenter/pages/home_page.dart';
 
 void main() {
   Locator.injectDependencies();
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      home: const HomePage(),
     );
   }
 }
