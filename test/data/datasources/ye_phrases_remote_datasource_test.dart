@@ -23,7 +23,7 @@ void main() {
         when(() => client.get(any())).thenAnswer((invocation) async => Response(
             statusCode: 200,
             requestOptions: RequestOptions(path: "https://api.kanye.rest"),
-            data: fixture("ye_quote.json")));
+            data: json.decode(fixture("ye_quote.json"))));
 
         final result = await remoteDatasource.getYePhrase();
         final map = json.decode(fixture("ye_quote.json"));

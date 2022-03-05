@@ -17,7 +17,7 @@ class YePhrasesRemoteDataSourceImpl implements YePhrasesRemoteDataSource {
     // client.options.headers["Content-Type"] = "application/json";
     final response = await client.get(Endpoints.phraseEndpoint);
     if (response.statusCode == 200) {
-      return YePhraseModel.fromJson(response.data);
+      return YePhraseModel.fromMap(response.data);
     } else {
       throw ServerException();
     }
