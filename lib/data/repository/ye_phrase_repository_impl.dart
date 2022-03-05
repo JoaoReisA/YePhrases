@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:ye_phrases/core/error/exceptions.dart';
 import 'package:ye_phrases/data/datasources/ye_phrases_remote_datasource.dart';
 import 'package:ye_phrases/domain/entity/ye_phrase.dart';
