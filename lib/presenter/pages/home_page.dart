@@ -7,13 +7,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         centerTitle: true,
         title: const Text("Ye Quotes"),
       ),
       body: Column(
         children: [
           //TODO: Put the quotes here
-          Image.asset("assets/images/ye_photo.png")
+          Image.asset("assets/images/ye.png")
         ],
       ),
     );
