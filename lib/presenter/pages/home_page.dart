@@ -6,7 +6,7 @@ import 'package:ye_phrases/presenter/widgets/quote_widget.dart';
 import '../controller/home_page_controller.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
