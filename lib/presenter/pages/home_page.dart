@@ -42,28 +42,32 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           Positioned(
-            top: 200,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: ValueListenableBuilder(
-                  valueListenable: controller.valueNotifier,
-                  builder: (context, value, child) {
-                    if (controller.failure == null) {
-                      return QuoteWidget(quote: value.toString());
-                    } else {
-                      return const QuoteWidget(
-                          quote: "Sorry, the server is off");
-                    }
-                  }),
-            ),
-          ),
-          Positioned(
             bottom: 0,
             left: 0,
             right: 0,
-            child: Image.asset("assets/images/ye_photo2.png"),
-          )
+            child: Image.asset("assets/images/kanye_paper.png"),
+          ),
+          Positioned(
+            top: 320,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: SizedBox(
+                height: 200,
+                width: 170,
+                child: ValueListenableBuilder(
+                    valueListenable: controller.valueNotifier,
+                    builder: (context, value, child) {
+                      if (controller.failure == null) {
+                        return QuoteWidget(quote: value.toString());
+                      } else {
+                        return const QuoteWidget(
+                            quote: "Sorry, the server is off");
+                      }
+                    }),
+              ),
+            ),
+          ),
         ],
       ),
     );
