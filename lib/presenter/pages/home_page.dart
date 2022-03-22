@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ye_phrases/core/di/locator.dart';
 import 'package:ye_phrases/presenter/widgets/quote_widget.dart';
@@ -35,7 +34,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
               iconSize: 24,
-              onPressed: () => controller.callUsecase(),
+              onPressed: controller.callUsecase,
               icon: const Icon(Icons.refresh_outlined))
         ],
       ),
