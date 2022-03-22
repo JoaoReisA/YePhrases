@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:ye_phrases/core/error/failures.dart';
 import 'package:ye_phrases/domain/usecases/fetch_pharase_usecase.dart';
-import 'package:dartz/dartz.dart';
 
 class HomePageController {
   final FetchPhraseUsecase fetchPhraseUsecase;
