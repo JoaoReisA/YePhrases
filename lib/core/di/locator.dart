@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_share_me/flutter_share_me.dart';
 import 'package:get_it/get_it.dart';
 import 'package:ye_phrases/data/repository/ye_phrase_repository_impl.dart';
 import 'package:ye_phrases/presenter/controller/home_page_controller.dart';
@@ -22,7 +23,8 @@ class Locator {
     locator.registerFactory<FetchPhraseUsecase>(() =>
         FetchPhraseUsecaseImpl(repository: locator<YePhraseRepository>()));
 
-    locator.registerFactory<HomePageController>(() =>
-        HomePageController(fetchPhraseUsecase: locator<FetchPhraseUsecase>()));
+    locator.registerFactory<HomePageController>(() => HomePageController(
+        fetchPhraseUsecase: locator<FetchPhraseUsecase>(),
+        flutterShareMe: FlutterShareMe()));
   }
 }

@@ -33,9 +33,14 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Ye Quotes"),
         actions: [
           IconButton(
+            iconSize: 24,
+            onPressed: () => controller.shareToWhatsApp("kanye west"),
+            icon: const Icon(Icons.share),
+          ),
+          IconButton(
               iconSize: 24,
               onPressed: controller.callUsecase,
-              icon: const Icon(Icons.refresh_outlined))
+              icon: const Icon(Icons.refresh_outlined)),
         ],
       ),
       body: Stack(
