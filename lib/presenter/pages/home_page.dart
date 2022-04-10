@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             iconSize: 24,
-            onPressed: () => controller.shareToWhatsApp("kanye west"),
+            onPressed: controller.share,
             icon: const Icon(Icons.share),
           ),
           IconButton(

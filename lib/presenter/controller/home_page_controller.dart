@@ -1,13 +1,11 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_share_me/flutter_share_me.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:ye_phrases/core/error/failures.dart';
 import 'package:ye_phrases/domain/usecases/fetch_pharase_usecase.dart';
 
 class HomePageController {
   final FetchPhraseUsecase fetchPhraseUsecase;
-  final FlutterShareMe flutterShareMe;
-  HomePageController(
-      {required this.fetchPhraseUsecase, required this.flutterShareMe});
+  HomePageController({required this.fetchPhraseUsecase});
   String quote = "";
   Failure? failure;
   final ValueNotifier<String> valueNotifier = ValueNotifier("");
@@ -24,7 +22,7 @@ class HomePageController {
     valueNotifier.value = quote;
   }
 
-  Future<void> shareToWhatsApp(String msg) async {
-    await flutterShareMe.shareToWhatsApp(msg: msg);
+  Future<void> share() async {
+    await FlutterShare.share(title: "YeQuotes", text: valueNotifier.value);
   }
 }

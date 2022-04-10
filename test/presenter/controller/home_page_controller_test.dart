@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_share_me/flutter_share_me.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:ye_phrases/core/error/failures.dart';
@@ -7,18 +7,14 @@ import 'package:ye_phrases/domain/entity/ye_phrase.dart';
 import 'package:ye_phrases/domain/usecases/fetch_pharase_usecase.dart';
 import 'package:ye_phrases/presenter/controller/home_page_controller.dart';
 
-import '../../mocks/classMocks/external/flutter_share_mock.dart';
 import '../../mocks/classMocks/usecases/fetch_phrase_usecase_mock.dart';
 
 void main() {
   late FetchPhraseUsecase usecase;
   late HomePageController controller;
-  late FlutterShareMe flutterShareMe;
   setUp(() {
     usecase = MockFetchPhraseUsecase();
-    flutterShareMe = MockFlutterShare();
-    controller = HomePageController(
-        fetchPhraseUsecase: usecase, flutterShareMe: flutterShareMe);
+    controller = HomePageController(fetchPhraseUsecase: usecase);
   });
   group("home page controller test", () {
     group("callUsecase", () {
@@ -45,14 +41,16 @@ void main() {
       });
     });
 
-    group("shareToWhatsApp", () {
+    group("share", () {
       test("Should call shareToWhatsApp function and succed", () async {
-        when(() => flutterShareMe.shareToWhatsApp(msg: any(named: "msg")))
-            .thenAnswer((invocation) async => "success");
+        when(() => FlutterShare.share(
+            title: any(named: "title"),
+            text: any(named: "text"))).thenAnswer((invocation) async => true);
         final msg = "msg";
-        await controller.shareToWhatsApp(msg);
+        await controller.share();
 
-        verify(() => flutterShareMe.shareToWhatsApp(msg: any(named: "msg")));
+        verify(() => FlutterShare.share(
+            title: any(named: "title"), text: any(named: "text")));
       });
     });
   });
