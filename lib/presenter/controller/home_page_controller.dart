@@ -22,7 +22,8 @@ class HomePageController {
     valueNotifier.value = quote;
   }
 
-  Future<void> share() async {
-    await FlutterShare.share(title: "YeQuotes", text: valueNotifier.value);
+  Future<bool?> share() async {
+    return await FlutterShare.share(
+        title: "YeQuotes", text: valueNotifier.value);
   }
 }

@@ -7,11 +7,16 @@ import 'package:ye_phrases/domain/entity/ye_phrase.dart';
 import 'package:ye_phrases/domain/usecases/fetch_pharase_usecase.dart';
 import 'package:ye_phrases/presenter/controller/home_page_controller.dart';
 
+import '../../mocks/classMocks/external/flutter_share_mock.dart';
 import '../../mocks/classMocks/usecases/fetch_phrase_usecase_mock.dart';
 
 void main() {
   late FetchPhraseUsecase usecase;
   late HomePageController controller;
+
+  setUpAll(() {
+    mockFlutterShare();
+  });
   setUp(() {
     usecase = MockFetchPhraseUsecase();
     controller = HomePageController(fetchPhraseUsecase: usecase);
@@ -43,14 +48,10 @@ void main() {
 
     group("share", () {
       test("Should call shareToWhatsApp function and succed", () async {
-        when(() => FlutterShare.share(
-            title: any(named: "title"),
-            text: any(named: "text"))).thenAnswer((invocation) async => true);
         final msg = "msg";
-        await controller.share();
+        final result = await controller.share();
 
-        verify(() => FlutterShare.share(
-            title: any(named: "title"), text: any(named: "text")));
+        expect(result, equals(true));
       });
     });
   });
