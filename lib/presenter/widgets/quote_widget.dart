@@ -4,6 +4,15 @@ class QuoteWidget extends StatelessWidget {
   const QuoteWidget({required this.quote, Key? key}) : super(key: key);
 
   final String quote;
+  double get fontSize {
+    if (quote.length >= 175) {
+      return 13;
+    } else if (quote.length >= 100) {
+      return 15;
+    } else {
+      return 18;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +21,7 @@ class QuoteWidget extends StatelessWidget {
       child: SelectableText(
         '"$quote"',
         style: TextStyle(
-            fontSize: quote.length >= 100 ? 15 : 18,
+            fontSize: fontSize,
             fontWeight: FontWeight.bold,
             color: Colors.black,
             fontFamily: 'PatrickHand'),
