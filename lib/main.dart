@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ye_phrases/core/di/locator.dart';
 import 'package:ye_phrases/presenter/pages/home_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import './firebase.options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   Locator.injectDependencies();
   runApp(const MyApp());
 }
