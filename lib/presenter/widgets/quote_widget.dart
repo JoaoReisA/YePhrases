@@ -12,7 +12,7 @@ class QuoteWidget extends StatelessWidget {
       child: SelectableText(
         '"$quote"',
         style: TextStyle(
-            fontSize: quote.length >= 100 ? 16 : 18,
+            fontSize: quote.length >= 100 ? 15 : 18,
             fontWeight: FontWeight.bold,
             color: Colors.black,
             fontFamily: 'PatrickHand'),

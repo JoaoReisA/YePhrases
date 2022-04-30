@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
             bottom: 0,
             left: 0,
             right: 0,
+            height: 500,
             child: Image.asset("assets/images/kanye_paper.png"),
           ),
           Positioned(
