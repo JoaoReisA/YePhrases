@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_share/flutter_share.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:ye_phrases/core/error/failures.dart';
@@ -48,7 +47,6 @@ void main() {
 
     group("share", () {
       test("Should call shareToWhatsApp function and succed", () async {
-        final msg = "msg";
         final result = await controller.share();
 
         expect(result, equals(true));
